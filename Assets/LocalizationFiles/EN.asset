@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74d8059b0efd374099d6cb312efff45, type: 3}
+  m_Name: EN
+  m_EditorClassIdentifier: 
+  langData:
+  - key: main_previouScene
+    value: Previous scene
+  - key: main_nextScene
+    value: Next scene
+  - key: main_previouLang
+    value: Previous language
+  - key: main_nextLang
+    value: Next language
+  - key: nameScene_main
+    value: Main
+  - key: nameScene_excerpt
+    value: Excerpt
+  - key: lang_rus
+    value: Russian
+  - key: lang_eng
+    value: English
+  - key: main_data
+    value: Data
+  - key: main_leng
+    value: Words in the dictionary
+  - key: Text_fragment
+    value: I stuffed a shirt or two into my old carpet-bag, tucked it under my arm,
+      and started for Cape Horn and the Pacific. Quitting the good city of old Manhatto,
+      I duly arrived in New Bedford. It was a Saturday night in December. Much was
+      I disappointed upon learning that the little packet for Nantucket had already
+      sailed, and that no way of reaching that place would offer, till the following
+      Monday.
+  - key: Text_fragmentdisc
+    value: Text fragment
+  - key: mainWords
+    value: Basic words
+  - key: addedWords
+    value: Added words
