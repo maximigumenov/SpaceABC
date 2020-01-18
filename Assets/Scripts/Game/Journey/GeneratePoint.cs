@@ -8,12 +8,15 @@ namespace JourneySpace
     {
         private Vector3 startPosition = new Vector3(0, 0, 0);
         private Vector3 maxPosition = new Vector3(30, 30, 30);
-        private Vector3 stepPosition = new Vector3(1, 1, 1);
+        private Vector3 stepPosition = new Vector3(10, 10, 10);
 
         private Vector3 currentPosition = new Vector3(0, 0, 0);
 
         public void Create(Transform mainTransform) {
-            Create_Z(0);
+            float _z = startPosition.y;
+            for (; _z < maxPosition.z; _z += stepPosition.z) {
+                Create_Z(_z);
+            }
         }
 
         public void Create_Z(float _z) {
@@ -30,10 +33,12 @@ namespace JourneySpace
                 {
                     Vector3 createPosition = new Vector3(_x, _y, _z);
                     GameObject tempObject = MonoBehaviour.Instantiate(pointObj);
+                    JourneyPoint journeyPoint = tempObject.GetComponent<JourneyPoint>();
+                    JourneyManager.DB.Add(journeyPoint);
                     tempObject.transform.position = createPosition;
                     
                 }
-                
+                _y = startPosition.y;
             }
         }
     }

@@ -10,9 +10,16 @@ public class JourneyBehaviour : MonoBehaviour
     void Start()
     {
         CreateJourney();
+        CreateShip();
     }
 
     private void CreateJourney() {
         JourneyManager.generate.Create(mainTransform);
+    }
+
+    private void CreateShip()
+    {
+        GameObject shipPrefab = Load.Prefab.Get("Ship");
+        Instantiate(shipPrefab);
     }
 }

@@ -652,10 +652,15 @@
     <Compile Include="Assets\Scripts\DataBase\SQLControl\Example\ExampleDataBase.cs" />
     <Compile Include="Assets\Scripts\DataBase\SQLControl\Example\ExampleEditorTable.cs" />
     <Compile Include="Assets\Scripts\DataBase\SQLControl\SQLite.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\DataBasePoint.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\GeneratePoint.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\JourneyPoint.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\JourneyTargetText.cs" />
+    <Compile Include="Assets\Scripts\Game\Main\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Game\MainMenu\UI\UI_MainMenu_PopUp.cs" />
+    <Compile Include="Assets\Scripts\Game\Ship\ShipJourney.cs" />
     <Compile Include="Assets\Scripts\JobS\AsyncJob.cs" />
     <Compile Include="Assets\Scripts\JobS\JobSystemManager.cs" />
     <Compile Include="Assets\Scripts\Localization\Language.cs" />

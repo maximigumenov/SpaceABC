@@ -35,6 +35,20 @@ namespace MoveSpace
         }
 
         /// <summary>
+        /// Добавить отношение движения между данными объектами с соответствующими параметрами
+        /// </summary>
+        /// <param name="_transform"></param>
+        /// <param name="_target"></param>
+        /// <param name="_speedMove"></param>
+        /// <param name="_speedRotate"></param>
+        /// <param name="_minDistance"></param>
+        public static void Add(Transform _transform, Transform _target, float _speedMove, float _speedRotate, float _minDistance, System.Action OnStop)
+        {
+            Stop(_transform, _target);
+            relationships.Add(new MoveRelationship(_transform, _target, _speedMove, _speedRotate, _minDistance, OnStop));
+        }
+
+        /// <summary>
         /// Остановить движение между данными объектами
         /// </summary>
         /// <param name="_transform"></param>
@@ -45,9 +59,10 @@ namespace MoveSpace
 
             for (int i = 0; i < finded.Count; i++)
             {
+                finded[i].OnStopMove?.Invoke();
                 relationships.Remove(finded[i]);
             }
-
+            
         }
 
         /// <summary>

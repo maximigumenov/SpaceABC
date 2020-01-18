@@ -48,3 +48,7 @@ MonoBehaviour:
     _content:
       _path: Prefabs/Journey/JourneyPoint
       _loaded: {fileID: 0}
+  - _id: Ship
+    _content:
+      _path: Prefabs/Main/Ship
+      _loaded: {fileID: 0}

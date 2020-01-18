@@ -56,6 +56,17 @@ namespace EnterTextSpace
         }
 
         /// <summary>
+        /// Удалить все данные
+        /// </summary>
+        public static void RemoveAll()
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Remove(list[i].text);
+            }
+        }
+
+        /// <summary>
         /// Создать объект для проверки текста на сцене
         /// </summary>
         private static void CreateTextField()

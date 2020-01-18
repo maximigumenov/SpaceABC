@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class FurnitureDetails : MonoBehaviour
 {
-    public Text nameLabel;
+    public Transform nameLabel;
 
     // Update is called once per frame
     void Update()
     {
         Vector3 namePos = Camera.main.WorldToScreenPoint(this.transform.position);
-        nameLabel.transform.position = namePos;
+        nameLabel.position = namePos;
     }
 }
