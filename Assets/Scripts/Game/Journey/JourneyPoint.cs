@@ -4,6 +4,7 @@ using UnityEngine;
 using EnterTextSpace;
 using System;
 using MoveSpace;
+using GameTextSpace;
 
 public class JourneyPoint : MonoBehaviour
 {
@@ -19,13 +20,18 @@ public class JourneyPoint : MonoBehaviour
 
     private void Initialization()
     {
-        data.Initialization(transform);
+        data.Initialization(this);
     }
 
     private void Generate() {
 
     }
 
+
+    public void ShowData() {
+        GameObject prefab = Load.Prefab.Get("TestObject");
+        Instantiate(prefab, transform);
+    }
     
 
     private float GetDistance() {
@@ -44,19 +50,21 @@ public class JourneyPointData {
     public Action OnStartMove;
     public Action OnEndMove;
 
-    public string name;
+    public string typeMessage;
+    public string message;
     private Transform transformMain;
+    private JourneyPoint journeyPoint;
 
-    public void Initialization(Transform transform) {
-        name = UnityEngine.Random.Range(1000, 9999).ToString();
-        transformMain = transform;
+    public void Initialization(JourneyPoint journeyPoint) {
+        this.journeyPoint = journeyPoint;
+        typeMessage = "JourneyMove_ENG";
+        transformMain = journeyPoint.transform;
     }
 
     public void ActiveName() {
 
         Action Stop = () => {
-            Debug.LogError("Test show");
-            ShipJourney.ShowTextUI();
+            journeyPoint.ShowData();
         };
 
         Action<string> Change = (str) => {
@@ -65,15 +73,15 @@ public class JourneyPointData {
 
         Action Good = () => {
             EnterTextController.RemoveAll();
-            MoveManager.Add(ShipJourney.ShipTransform, transformMain, 10, 10, 0.01f, Stop);
+            MoveManager.Add(ShipJourney.ShipTransform, transformMain, 10, 10, 3f, Stop);
             OnStartMove?.Invoke();
         };
 
         Action Bed = () => {
             
         };
-
-        EnterTextController.Add(name, Change, Good, Bed);
+        message = GameText.Get(typeMessage);
+        EnterTextController.Add(message, Change, Good, Bed);
 
     }
 }

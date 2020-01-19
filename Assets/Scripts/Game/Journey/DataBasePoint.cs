@@ -23,9 +23,12 @@ namespace JourneySpace
 
             list = list.OrderBy(x => x.Distance).ToList();
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; result.Count < count; i++)
             {
-                result.Add(list[i]);
+                if (list[i].Distance > 3)
+                {
+                    result.Add(list[i]);
+                }
             }
 
             return result;

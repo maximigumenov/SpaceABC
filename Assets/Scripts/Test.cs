@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using EnterTextSpace;
 using System;
+using GameTextSpace;
 
 public class Test : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Action<string> ChangeAction = (str) => { Debug.LogError(str); };
-        Action GoodAction = () => { Debug.LogError("GoodAction"); };
-        Action BedAction = () => { Debug.LogError("BedAction"); EnterTextController.Remove("test"); };
-
-        EnterTextController.Add("test", ChangeAction, GoodAction, BedAction);
+        GameText.Initialization(new List<string>(new string[] { "test1", "Empty" }));
+        Debug.LogError(GameText.Get("test1"));
+        GameText.Initialization(new List<string>(new string[] { "test1", "Empty" }));
+        Debug.LogError(GameText.Get("test1"));
     }
 
     // Update is called once per frame

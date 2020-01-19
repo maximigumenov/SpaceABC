@@ -29,15 +29,17 @@ public class ShipJourney : MonoBehaviour
     private void GetPoints() {
         int count = 5;
         listPoint = JourneyManager.DB.NearestList(count);
-        for (int i = 0; i < count; i++)
-        {
-            listText[i].SetText(listPoint[i].data.name);
-        }
-
+        
+        GameText.Initialization(new List<string>(new string[] { "JourneyMove_ENG"}));
         for (int i = 0; i < listPoint.Count; i++)
         {
             listPoint[i].data.OnStartMove += HideText;
             listPoint[i].data.ActiveName();
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            listText[i].SetText(listPoint[i].data.message);
         }
     }
 
