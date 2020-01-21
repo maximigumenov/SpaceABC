@@ -12,5 +12,6 @@ namespace GameTextSpace
     {
         /// <summary>Текст</summary>
         public string text;
+        [HideInInspector]public string type;
     }
 }

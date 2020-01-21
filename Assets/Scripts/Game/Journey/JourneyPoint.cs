@@ -80,7 +80,7 @@ public class JourneyPointData {
         Action Bed = () => {
             
         };
-        message = GameText.Get(typeMessage);
+        message = GameText.Get(typeMessage).text;
         EnterTextController.Add(message, Change, Good, Bed);
 
     }

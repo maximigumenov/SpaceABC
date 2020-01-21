@@ -97,7 +97,7 @@ public static class GameText
     /// </summary>
     /// <param name="type">Тип текста</param>
     /// <returns></returns>
-    public static string Get(string type)
+    public static TextData Get(string type)
     {
         TextDataList temp = data.Find(x => x.type == type);
         if (temp == null)
@@ -105,7 +105,48 @@ public static class GameText
             temp = dataEmpty.Find(x => x.type == emptyText);
         }
 
-        string result = temp.Get();
+        TextData result = temp.Get();
+        return result;
+    }
+
+    /// <summary>
+    /// Получить по тексту, каждого типа
+    /// </summary>
+    /// <param name="types"></param>
+    /// <returns></returns>
+    public static List<TextData> GetOneType(List<string> types)
+    {
+        TextDataList baseTemp = new TextDataList();
+        List<TextData> result = new List<TextData>();
+
+        for (int i = 0; i < types.Count; i++)
+        {
+            TextDataList temp = data.Find(x => x.type == types[i]);
+
+            if (temp == null)
+            {
+                temp = dataEmpty.Find(x => x.type == emptyText);
+            }
+
+            if (i == 0)
+            {
+                baseTemp = temp;
+            }
+            else
+            {
+                baseTemp.data.AddRange(temp.CopyList());
+            }
+        }
+
+        for (int i = 0; i < types.Count; i++)
+        {
+            TextData tempTextData = baseTemp.Get();
+            string typeClear = tempTextData.type;
+            baseTemp.ClearThisType(typeClear);
+            result.Add(tempTextData);
+        }
+
+
         return result;
     }
 }

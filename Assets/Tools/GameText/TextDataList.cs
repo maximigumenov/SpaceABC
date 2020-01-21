@@ -43,14 +43,38 @@ namespace GameTextSpace
         /// </summary>
         public void Initialization()
         {
+            for (int i = 0; i < data.Count; i++)
+            {
+                data[i].type = type;
+            }
+
             active = data;
+        }
+
+        /// <summary>
+        /// Скопировать  основной лист
+        /// </summary>
+        /// <returns></returns>
+        public List<TextData> CopyList() {
+            return data;
+        }
+
+        /// <summary>
+        /// Очистить во всех списках, если есть с этим типом
+        /// </summary>
+        /// <param name="_type"></param>
+        public void ClearThisType(string _type)
+        {
+            data.RemoveAll(x => x.type == _type);
+            active.RemoveAll(x => x.type == _type);
+            notActive.RemoveAll(x => x.type == _type);
         }
 
         /// <summary>
         /// Получить текст
         /// </summary>
         /// <returns></returns>
-        public string Get()
+        public TextData Get()
         {
             TextData result = null;
 
@@ -72,7 +96,7 @@ namespace GameTextSpace
             first.Add(result.text[0].ToString());
             notActive.Add(result);
 
-            return result.text;
+            return result;
         }
 
         /// <summary>
