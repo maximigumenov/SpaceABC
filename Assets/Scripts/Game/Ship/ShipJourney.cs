@@ -1,27 +1,33 @@
-﻿using System.Collections;
+﻿using EnterTextSpace;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipJourney : MonoBehaviour
 {
     public GameObject cameraObject;
-    public static Transform ShipTransform;
+    public Transform cameraTransform;
     private List<JourneyPoint> listPoint = new List<JourneyPoint>();
     public List<JourneyTargetText> listText;
-    public static System.Action ShowTextUI;
-    public static System.Action HideTextUI;
+    public static Transform ShipTransform;
+    public static Transform CameraTransform;
+    public static System.Action ShowMoveTextUI;
+    public static System.Action HideMoveTextUI;
 
     // Start is called before the first frame update
     void Start()
     {
         ShipTransform = transform;
+        CameraTransform = cameraTransform;
         ActiveCamera();
         GetPoints();
-        ShowTextUI += ShowText;
-        HideTextUI += HideText;
+        ShowMoveTextUI += ShowMoveText;
+        HideMoveTextUI += HideMoveText;
     }
 
     private void ActiveCamera() {
+        ShipCamera.moveTransform = cameraTransform;
+        ShipCamera.rotateTransform = transform;
         cameraObject.SetActive(true);
         Camera.main.gameObject.SetActive(false);
     }
@@ -33,25 +39,27 @@ public class ShipJourney : MonoBehaviour
         GameText.Initialization(new List<string>(new string[] { "JourneyMove_ENG"}));
         for (int i = 0; i < listPoint.Count; i++)
         {
-            listPoint[i].data.OnStartMove += HideText;
-            listPoint[i].data.ActiveName();
+            listPoint[i].data.OnStartMove += HideMoveText;
+            listPoint[i].data.ActiveName(listText[i]);
         }
 
         for (int i = 0; i < count; i++)
         {
-            listText[i].SetText(listPoint[i].data.message);
+            listText[i].SetText(listPoint[i].data.message.GetColor("1400FF"));
         }
     }
 
-    private void HideText() {
+    private void HideMoveText() {
         for (int i = 0; i < listText.Count; i++)
         {
             listText[i].gameObject.SetActive(false);
         }
     }
 
-    private void ShowText()
+    private void ShowMoveText()
     {
+        EnterTextController.RemoveAll();
+        GetPoints();
         for (int i = 0; i < listText.Count; i++)
         {
             listText[i].gameObject.SetActive(true);
@@ -60,7 +68,7 @@ public class ShipJourney : MonoBehaviour
 
     private void OnDestroy()
     {
-        ShowTextUI -= ShowText;
-        HideTextUI -= HideText;
+        ShowMoveTextUI -= ShowMoveText;
+        HideMoveTextUI -= HideMoveText;
     }
 }

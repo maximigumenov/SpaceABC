@@ -10,6 +10,11 @@ public class JourneyPoint : MonoBehaviour
 {
     public JourneyPointData data = new JourneyPointData();
 
+    private IJourneyObject journeyObject;
+
+    public Transform cameraPosition { get { return journeyObject.cameraPosition; } }
+    public Transform cameraView { get { return journeyObject.cameraView; } }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,7 @@ public class JourneyPoint : MonoBehaviour
         data.Initialization(this);
     }
 
+
     private void Generate() {
 
     }
@@ -30,7 +36,12 @@ public class JourneyPoint : MonoBehaviour
 
     public void ShowData() {
         GameObject prefab = Load.Prefab.Get("TestObject");
-        Instantiate(prefab, transform);
+        journeyObject = Instantiate(prefab, transform).GetComponent<IJourneyObject>();
+        data.isActive = true;
+    }
+
+    public void ClearData() {
+
     }
     
 
@@ -50,10 +61,13 @@ public class JourneyPointData {
     public Action OnStartMove;
     public Action OnEndMove;
 
+    public bool isActive = false;
+
     public string typeMessage;
     public string message;
     private Transform transformMain;
     private JourneyPoint journeyPoint;
+    private JourneyTargetText journeyTargetText;
 
     public void Initialization(JourneyPoint journeyPoint) {
         this.journeyPoint = journeyPoint;
@@ -61,24 +75,27 @@ public class JourneyPointData {
         transformMain = journeyPoint.transform;
     }
 
-    public void ActiveName() {
-
+    public void ActiveName(JourneyTargetText _journeyTargetText) {
+        journeyTargetText = _journeyTargetText;
+        journeyTargetText.SetText(message.GetColor("1400FF"));
         Action Stop = () => {
-            journeyPoint.ShowData();
+            ShipCamera.moveTransform = journeyPoint.cameraPosition;
+            ShipCamera.rotateTransform = journeyPoint.cameraView;
         };
 
         Action<string> Change = (str) => {
-            Debug.LogError(str);
+            journeyTargetText.SetText(message.GetColor(str, "FF0000", "1400FF"));
         };
 
         Action Good = () => {
+            journeyPoint.ShowData();
             EnterTextController.RemoveAll();
             MoveManager.Add(ShipJourney.ShipTransform, transformMain, 10, 10, 3f, Stop);
             OnStartMove?.Invoke();
         };
 
         Action Bed = () => {
-            
+            journeyTargetText.SetText(message.GetColor("1400FF"));
         };
         message = GameText.Get(typeMessage).text;
         EnterTextController.Add(message, Change, Good, Bed);

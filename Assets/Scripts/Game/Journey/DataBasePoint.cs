@@ -22,10 +22,10 @@ namespace JourneySpace
             List<JourneyPoint> result = new List<JourneyPoint>();
 
             list = list.OrderBy(x => x.Distance).ToList();
-
+            
             for (int i = 0; result.Count < count; i++)
             {
-                if (list[i].Distance > 3)
+                if (list[i].Distance > 3 && list[i].data.isActive == false)
                 {
                     result.Add(list[i]);
                 }

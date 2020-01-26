@@ -662,6 +662,7 @@
     <Compile Include="Assets\Scripts\Game\Journey\JourneyTargetText.cs" />
     <Compile Include="Assets\Scripts\Game\Main\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Game\MainMenu\UI\UI_MainMenu_PopUp.cs" />
+    <Compile Include="Assets\Scripts\Game\Ship\ShipCamera.cs" />
     <Compile Include="Assets\Scripts\Game\Ship\ShipJourney.cs" />
     <Compile Include="Assets\Scripts\JobS\AsyncJob.cs" />
     <Compile Include="Assets\Scripts\JobS\JobSystemManager.cs" />

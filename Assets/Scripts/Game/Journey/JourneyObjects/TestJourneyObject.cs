@@ -7,6 +7,10 @@ using EnterTextSpace;
 
 public class TestJourneyObject : MonoBehaviour, IJourneyObject
 {
+    public Transform _cameraPosition;
+    public Transform _cameraView;
+
+
     public List<string> _types;
     public List<string> types
     {
@@ -20,6 +24,10 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
             _types = value;
         }
     }
+
+    public Transform cameraPosition {get {return _cameraPosition; }}
+    public Transform cameraView { get { return _cameraView; } }
+
 
     void Start() {
         ClearData();
@@ -61,7 +69,7 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
        
 
         Action<string> Change = (str) => {
-            Debug.LogError(str);
+            
         };
 
         Action Good = () => {
@@ -75,8 +83,18 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
         EnterTextController.Add(message, Change, Good, Bed);
     }
 
+    public void ClearObject() {
+        
+        ShipJourney.ShowMoveTextUI?.Invoke();
+
+        ShipCamera.moveTransform = ShipJourney.ShipTransform;
+        ShipCamera.rotateTransform = ShipJourney.CameraTransform;
+
+        Destroy(this.gameObject);
+    }
+
     public void Work(string type) {
-        Debug.LogError(type);
+        ClearObject();
     }
 }
 

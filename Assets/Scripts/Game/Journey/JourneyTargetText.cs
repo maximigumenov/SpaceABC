@@ -10,4 +10,6 @@ public class JourneyTargetText : MonoBehaviour
     public void SetText(string message) {
         textPoint.text = message;
     }
+
+    
 }
