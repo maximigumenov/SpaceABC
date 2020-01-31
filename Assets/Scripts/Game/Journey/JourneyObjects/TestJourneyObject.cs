@@ -87,8 +87,8 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
         
         ShipJourney.ShowMoveTextUI?.Invoke();
 
-        ShipCamera.moveTransform = ShipJourney.ShipTransform;
-        ShipCamera.rotateTransform = ShipJourney.CameraTransform;
+        ShipCamera.moveTransform = ShipJourney.CameraTransform;
+        ShipCamera.rotateTransform = ShipJourney.ShipTransform;
 
         Destroy(this.gameObject);
     }
