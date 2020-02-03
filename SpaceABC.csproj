@@ -674,6 +674,7 @@
     <Compile Include="Assets\Scripts\Prefabs\Path.cs" />
     <Compile Include="Assets\Scripts\Test.cs" />
     <Compile Include="Assets\Scripts\Test2.cs" />
+    <Compile Include="Assets\SSC\Script\Basic_controller.cs" />
     <Compile Include="Assets\Tools\Chance\ChanceExtension.cs" />
     <Compile Include="Assets\Tools\EnterText\EnterTextBehaviour.cs" />
     <Compile Include="Assets\Tools\EnterText\EnterTextController.cs" />

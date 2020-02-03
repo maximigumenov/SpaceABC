@@ -7,8 +7,8 @@ namespace JourneySpace
     public class GeneratePoint
     {
         private Vector3 startPosition = new Vector3(0, 0, 0);
-        private Vector3 maxPosition = new Vector3(30, 30, 30);
-        private Vector3 stepPosition = new Vector3(10, 10, 10);
+        private Vector3 maxPosition = new Vector3(300, 300, 300);
+        private Vector3 stepPosition = new Vector3(80, 80, 80);
 
         private Vector3 currentPosition = new Vector3(0, 0, 0);
 
