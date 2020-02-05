@@ -647,6 +647,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Asteroids Pack\Assets\Scripts\RandomRotator.cs" />
     <Compile Include="Assets\Scripts\DataBase\SQLControl\DataService.cs" />
     <Compile Include="Assets\Scripts\DataBase\SQLControl\Example\ExampleData.cs" />
     <Compile Include="Assets\Scripts\DataBase\SQLControl\Example\ExampleDataBase.cs" />
