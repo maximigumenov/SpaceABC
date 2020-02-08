@@ -54,7 +54,7 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
         for (int i = 0; i < data.Count; i++)
         {
             TextJourneyObject temp = listTexts.Find(x => x.type == data[i].type);
-            temp.targetText.SetText(data[i].text);
+            temp.targetText.SetText(data[i].text.GetColor(temp.targetText.notSelectColor));
             SetWork(data[i].text, data[i].type);
             temp.targetText.gameObject.SetActive(true);
         }

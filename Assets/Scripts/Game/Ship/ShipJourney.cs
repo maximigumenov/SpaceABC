@@ -45,7 +45,7 @@ public class ShipJourney : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            listText[i].SetText(listPoint[i].data.message.GetColor("1400FF"));
+            listText[i].SetText(listPoint[i].data.message.GetColor(listText[i].notSelectColor));
         }
     }
 

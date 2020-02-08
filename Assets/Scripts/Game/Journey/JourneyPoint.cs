@@ -77,14 +77,14 @@ public class JourneyPointData {
 
     public void ActiveName(JourneyTargetText _journeyTargetText) {
         journeyTargetText = _journeyTargetText;
-        journeyTargetText.SetText(message.GetColor("1400FF"));
+        journeyTargetText.SetText(message.GetColor(journeyTargetText.notSelectColor));
         Action Stop = () => {
             ShipCamera.moveTransform = journeyPoint.cameraPosition;
             ShipCamera.rotateTransform = journeyPoint.cameraView;
         };
 
         Action<string> Change = (str) => {
-            journeyTargetText.SetText(message.GetColor(str, "FF0000", "1400FF"));
+            journeyTargetText.SetText(message.GetColor(str, journeyTargetText.selectColor, journeyTargetText.notSelectColor));
         };
 
         Action Good = () => {
@@ -95,7 +95,7 @@ public class JourneyPointData {
         };
 
         Action Bed = () => {
-            journeyTargetText.SetText(message.GetColor("1400FF"));
+            journeyTargetText.SetText(message.GetColor(journeyTargetText.notSelectColor));
         };
         message = GameText.Get(typeMessage).text;
         EnterTextController.Add(message, Change, Good, Bed);
