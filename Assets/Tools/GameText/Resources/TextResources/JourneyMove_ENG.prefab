@@ -48,15 +48,28 @@ MonoBehaviour:
     reserveType: Empty
     data:
     - text: move
+      type: JourneyMove_ENG
     - text: turn
+      type: JourneyMove_ENG
     - text: shift
+      type: JourneyMove_ENG
     - text: step
+      type: JourneyMove_ENG
     - text: go
+      type: JourneyMove_ENG
     - text: run
+      type: JourneyMove_ENG
     - text: rush
+      type: JourneyMove_ENG
     - text: fly
+      type: JourneyMove_ENG
     - text: sprint
+      type: JourneyMove_ENG
     - text: reach
+      type: JourneyMove_ENG
     - text: swoop
+      type: JourneyMove_ENG
     - text: travel
+      type: JourneyMove_ENG
     - text: hurry
+      type: JourneyMove_ENG

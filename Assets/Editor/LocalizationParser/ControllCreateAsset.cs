@@ -24,8 +24,6 @@ public static class ControllCreateAsset
 		string assetPathAndName = AssetDatabase.GenerateUniqueAssetPath (path + "/" + nameAsset + ".asset");
         
         string json = File.ReadAllText(pathJson);
-        //json = json.Replace("\n", "");
-        Debug.LogError(json);
         FromJsonOverwriteArr (json, fieldName, asset);
 		AssetDatabase.CreateAsset (asset, assetPathAndName);
 		AssetDatabase.SaveAssets ();

@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LocalizationSpace{
-public class Language : ScriptableObject
+namespace LocalizationSpace
 {
-		public LanguageData[] langData;
-}
+    public class Language : ScriptableObject
+    {
+        public LanguageData[] langData;
+    }
 
-[System.Serializable]
-public class LanguageData
-{
-    public string key;
-    public string value;
-	}
+    [System.Serializable]
+    public class LanguageData
+    {
+        public string key;
+        public string value;
+    }
 }

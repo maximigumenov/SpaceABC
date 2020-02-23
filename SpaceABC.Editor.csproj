@@ -647,6 +647,10 @@
       <Project>{F37EB8D3-595B-2A8E-9D57-98253E4F534B}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{BA355BDC-D9AC-4DF0-CBE7-0822160BAB0E}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{6940CB9D-2F64-7CD4-BA0F-5610D5AB47B0}</Project>
       <Name>Unity.Timeline</Name>
@@ -663,16 +667,13 @@
       <Project>{FB59C224-D4E6-39F8-9116-391BC3D3E954}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{BA355BDC-D9AC-4DF0-CBE7-0822160BAB0E}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{3BB3FA27-B9AA-7EC6-4E7C-EE51EC3271F7}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\ConvertData\MainConvertData.cs" />
     <Compile Include="Assets\Editor\LocalizationParser\ControllCreateAsset.cs" />
     <Compile Include="Assets\Editor\LocalizationParser\ParsedLocalization.cs" />
   </ItemGroup>

@@ -4,6 +4,7 @@ using UnityEngine;
 using GameTextSpace;
 using System;
 using EnterTextSpace;
+using MoveSpace;
 
 public class TestJourneyObject : MonoBehaviour, IJourneyObject
 {
@@ -12,6 +13,9 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
 
 
     public List<string> _types;
+
+
+
     public List<string> types
     {
         get
@@ -29,7 +33,10 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
     public Transform cameraView { get { return _cameraView; } }
 
 
+    MoveWork moveWork = new MoveWork();
+
     void Start() {
+        moveWork.RotateTo(transform, ShipJourney.ShipTransform, 100);
         ClearData();
         GetData();
         Sort();

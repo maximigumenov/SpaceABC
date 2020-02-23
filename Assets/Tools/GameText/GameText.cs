@@ -53,18 +53,18 @@ public static class GameText
         GameObject prefab = Resources.Load<GameObject>("TextResources/" + path);
         if (prefab != null)
         {
-            
-        
-        GameObject go = MonoBehaviour.Instantiate(prefab);
 
-        result = go.GetComponent<TextBehaviour>().dataList;
-        result.Initialization();
-        MonoBehaviour.Destroy(go);
+
+            GameObject go = MonoBehaviour.Instantiate(prefab);
+            TextBehaviour textBehaviour = go.GetComponent<TextBehaviour>();
+            result = textBehaviour.dataList;
+            result.Initialization();
+            MonoBehaviour.Destroy(go);
         }
         return result;
     }
 
-    
+
 
     /// <summary>
     /// Проинициализировать все списки, которые мы будем использовать в текущий момент
@@ -86,10 +86,10 @@ public static class GameText
     public static void AddType(string type)
     {
         TextDataList added = InitDataList(type);
-            if (added != null)
-            {
-                data.Add(added);
-            }
+        if (added != null)
+        {
+            data.Add(added);
+        }
     }
 
     /// <summary>
