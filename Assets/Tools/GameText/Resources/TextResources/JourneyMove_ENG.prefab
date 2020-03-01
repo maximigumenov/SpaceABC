@@ -47,29 +47,53 @@ MonoBehaviour:
     type: JourneyMove_ENG
     reserveType: Empty
     data:
-    - text: move
+    - text: aaa
       type: JourneyMove_ENG
-    - text: turn
+    - text: bbb
       type: JourneyMove_ENG
-    - text: shift
+    - text: ccc
       type: JourneyMove_ENG
-    - text: step
+    - text: ddd
       type: JourneyMove_ENG
-    - text: go
+    - text: eee
       type: JourneyMove_ENG
-    - text: run
+    - text: fff
       type: JourneyMove_ENG
-    - text: rush
+    - text: ggg
       type: JourneyMove_ENG
-    - text: fly
+    - text: hhh
       type: JourneyMove_ENG
-    - text: sprint
+    - text: iii
       type: JourneyMove_ENG
-    - text: reach
+    - text: jjj
       type: JourneyMove_ENG
-    - text: swoop
+    - text: kkk
       type: JourneyMove_ENG
-    - text: travel
+    - text: lll
       type: JourneyMove_ENG
-    - text: hurry
+    - text: mmm
+      type: JourneyMove_ENG
+    - text: nnn
+      type: JourneyMove_ENG
+    - text: ooo
+      type: JourneyMove_ENG
+    - text: ppp
+      type: JourneyMove_ENG
+    - text: qqq
+      type: JourneyMove_ENG
+    - text: rrr
+      type: JourneyMove_ENG
+    - text: sss
+      type: JourneyMove_ENG
+    - text: ttt
+      type: JourneyMove_ENG
+    - text: uuu
+      type: JourneyMove_ENG
+    - text: vvv
+      type: JourneyMove_ENG
+    - text: www
+      type: JourneyMove_ENG
+    - text: yyy
+      type: JourneyMove_ENG
+    - text: zzz
       type: JourneyMove_ENG

@@ -654,9 +654,13 @@
     <Compile Include="Assets\Scripts\Game\Journey\GeneratePoint.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\AsteroidJourney.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\BaseJourney.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\IJourneyObject.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\IJourneyObjectData.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\TestJourneyObject.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyPoint.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\JourneyPointData.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyTargetText.cs" />
     <Compile Include="Assets\Scripts\Game\Main\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Game\MainMenu\UI\UI_MainMenu_PopUp.cs" />

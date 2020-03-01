@@ -7,11 +7,16 @@ using LocalizationSpace;
 
 public class MainConvertData1
 {
+    private static string engData = "_ENG";
+    private static string rusData = "_RUS";
+
     [MenuItem("Tools/ParsedTextData")]
     public static void CreateAsset()
     {
         DataText();
     }
+
+
 
     //Specify name class for Localization
     //
@@ -21,7 +26,17 @@ public class MainConvertData1
     //Name file
     static void DataText()
     {
-        ControllCreateAsset.CreateAsset<GameTextData>("Assets/TextData/JourneyMove_ENG.json", "Resources/TextData", "textData", "JourneyMove_ENG");
+        JourneyData();
     }
 
+    private static void JourneyData() {
+        CreateData("JourneyMove");
+        CreateData("JourneyWork");
+        CreateData("JourneyExploration");
+    }
+
+    private static void CreateData(string nameData) {
+        ControllCreateAsset.CreateAsset<GameTextData>("Assets/TextData/" + nameData + engData + ".json", "Resources/TextData", "textData", nameData + engData);
+        ControllCreateAsset.CreateAsset<GameTextData>("Assets/TextData/" + nameData + rusData + ".json", "Resources/TextData", "textData", nameData + rusData);
+    }
 }

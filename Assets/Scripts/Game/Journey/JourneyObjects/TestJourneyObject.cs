@@ -105,8 +105,4 @@ public class TestJourneyObject : MonoBehaviour, IJourneyObject
     }
 }
 
-[System.Serializable]
-public class TextJourneyObject {
-    public string type;
-    public JourneyTargetText targetText;
-}
+

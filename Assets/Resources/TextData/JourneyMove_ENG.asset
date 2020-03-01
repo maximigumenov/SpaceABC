@@ -13,16 +13,28 @@ MonoBehaviour:
   m_Name: JourneyMove_ENG
   m_EditorClassIdentifier: 
   textData:
-  - text: move
-  - text: turn
-  - text: shift
-  - text: step
-  - text: go
-  - text: run
-  - text: rush
-  - text: fly
-  - text: sprint
-  - text: reach
-  - text: swoop
-  - text: travel
-  - text: hurry
+  - text: aaa
+  - text: bbb
+  - text: ccc
+  - text: ddd
+  - text: eee
+  - text: fff
+  - text: ggg
+  - text: hhh
+  - text: iii
+  - text: jjj
+  - text: kkk
+  - text: lll
+  - text: mmm
+  - text: nnn
+  - text: ooo
+  - text: ppp
+  - text: qqq
+  - text: rrr
+  - text: sss
+  - text: ttt
+  - text: uuu
+  - text: vvv
+  - text: www
+  - text: yyy
+  - text: zzz
