@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5806033097441558694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 46692251560335765}
+  - component: {fileID: 7772731807405149305}
+  m_Layer: 0
+  m_Name: JourneyExploration_ENG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &46692251560335765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806033097441558694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 630, y: 1241, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7772731807405149305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806033097441558694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1903cd06911ab34bbb5c0c070d612f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataList:
+    type: JourneyExploration_ENG
+    reserveType: Empty
+    data:
+    - text: aaa
+      type: JourneyWork_ENG
+    - text: bbb
+      type: JourneyWork_ENG
+    - text: ccc
+      type: JourneyWork_ENG
+    - text: ddd
+      type: JourneyWork_ENG
+    - text: eee
+      type: JourneyWork_ENG
+    - text: fff
+      type: JourneyWork_ENG
+    - text: ggg
+      type: JourneyWork_ENG
+    - text: hhh
+      type: JourneyWork_ENG
+    - text: iii
+      type: JourneyWork_ENG
+    - text: jjj
+      type: JourneyWork_ENG
+    - text: kkk
+      type: JourneyWork_ENG
+    - text: lll
+      type: JourneyWork_ENG
+    - text: mmm
+      type: JourneyWork_ENG
+    - text: nnn
+      type: JourneyWork_ENG
+    - text: ooo
+      type: JourneyWork_ENG
+    - text: ppp
+      type: JourneyWork_ENG
+    - text: qqq
+      type: JourneyWork_ENG
+    - text: rrr
+      type: JourneyWork_ENG
+    - text: sss
+      type: JourneyWork_ENG
+    - text: ttt
+      type: JourneyWork_ENG
+    - text: uuu
+      type: JourneyWork_ENG
+    - text: vvv
+      type: JourneyWork_ENG
+    - text: www
+      type: JourneyWork_ENG
+    - text: yyy
+      type: JourneyWork_ENG
+    - text: zzz
+      type: JourneyWork_ENG

@@ -46,7 +46,6 @@ namespace LoadSystem
         public GameObject Get(string _id)
         {
             GameObject result = null;
-
             ILoadContent<GameObject> finded = data[_id];
             if (finded != null)
             {

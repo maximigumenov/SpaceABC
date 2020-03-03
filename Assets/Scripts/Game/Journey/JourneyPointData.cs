@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EnterTextSpace;
 using MoveSpace;
+using GameTextSpace;
 
 public class JourneyPointData
 {
@@ -20,12 +21,14 @@ public class JourneyPointData
     public void Initialization(JourneyPoint journeyPoint)
     {
         this.journeyPoint = journeyPoint;
-        typeMessage = "JourneyMove_ENG";
+        //typeMessage = "JourneyMove_ENG";
         transformMain = journeyPoint.transform;
     }
 
-    public void ActiveName(JourneyTargetText _journeyTargetText)
+    public void ActiveName(JourneyTargetText _journeyTargetText, TextData textData)
     {
+        typeMessage = textData.type;
+        message = textData.text;
         journeyTargetText = _journeyTargetText;
         journeyTargetText.SetText(message.GetColor(journeyTargetText.notSelectColor));
         Action Stop = () => {
@@ -47,7 +50,8 @@ public class JourneyPointData
         Action Bed = () => {
             journeyTargetText.SetText(message.GetColor(journeyTargetText.notSelectColor));
         };
-        message = GameText.Get(typeMessage).text;
+        //message = GameText.Get(typeMessage).text;
+        message = textData.text;
         EnterTextController.Add(message, Change, Good, Bed);
 
     }
