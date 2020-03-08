@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2597a822899f4bbd972981709387a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMove: 10
-  speedRotate: 100
+  speedMove: 20
+  speedRotate: 10
 --- !u!45 &1115134306998374663
 Skybox:
   m_ObjectHideFlags: 0

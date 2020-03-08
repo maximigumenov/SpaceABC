@@ -41,6 +41,11 @@ public class JourneyPoint : MonoBehaviour
         data.isActive = true;
     }
 
+    public void ShowText()
+    {
+        journeyObject.SetTextUi();
+    }
+
     public void ClearData() {
 
     }

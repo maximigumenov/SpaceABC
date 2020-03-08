@@ -12,4 +12,14 @@ public class AsteroidJourney : BaseJourney, IJourneyObject, IJourneyObjectData
     {
         base.Start();
     }
+
+    public override void Sort(out List<string> notActiveType)
+    {
+        base.Sort(out notActiveType);
+
+        TextData random = data.Random();
+        notActiveType.Add(random.type);
+        data.Remove(random);
+        EnterTextController.Remove(random.text);
+    }
 }

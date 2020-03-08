@@ -19,10 +19,6 @@ namespace ShipJourneySpace
         {
             EnterTextController.RemoveAll();
             GetPoints();
-            for (int i = 0; i < listText.Count; i++)
-            {
-                listText[i].gameObject.SetActive(true);
-            }
         }
 
         /// <summary>

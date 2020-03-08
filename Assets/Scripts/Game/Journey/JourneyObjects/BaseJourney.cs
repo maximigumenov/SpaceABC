@@ -20,7 +20,7 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
 
     public List<TextJourneyObject> listTexts;
 
-    private List<TextData> data = new List<TextData>();
+    public List<TextData> data = new List<TextData>();
 
     public virtual void Start() {
         moveWork.RotateTo(transform, ShipJourney.ShipTransform, 100);
@@ -31,8 +31,94 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
 
         ClearData();
         GetData();
-        Sort();
-        SetTextUi();
+    }
+
+    
+
+    public virtual void Sort(out List<string> notActiveType)
+    {
+        notActiveType = new List<string>();
+    }
+
+    
+
+    public virtual void SetTextUi()
+    {
+        List<TextJourneyObject> texts = new List<TextJourneyObject>();
+        for (int i = 0; i < data.Count; i++)
+        {
+                TextJourneyObject temp = listTexts.Find(x => x.type == data[i].type);
+                temp.targetText.SetText(data[i].text.GetColor(temp.targetText.notSelectColor));
+                SetWork(data[i].text, data[i].type, temp);
+                temp.targetText.gameObject.SetActive(true);
+            texts.Add(temp);
+        }
+
+        List<string> notActiveType = new List<string>();
+        Sort(out notActiveType);
+
+        for (int i = 0; i < notActiveType.Count; i++)
+        {
+            TextJourneyObject temp = listTexts.Find(x => x.type == notActiveType[i]);
+            if (temp != null)
+            {
+                temp.targetText.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    
+
+    public virtual void WorkChange(string message, string _text, TextJourneyObject textJourney) {
+
+        textJourney.targetText.SetText(message.GetColor(_text, textJourney.targetText.selectColor, textJourney.targetText.notSelectColor));
+    }
+
+    public virtual void WorkGood()
+    {
+        EnterTextController.RemoveAll();
+        
+        StartCoroutine(WaitAnim());
+    }
+
+    IEnumerator WaitAnim() {
+        ClearUI();
+        yield return new WaitForSeconds(5);
+        ClearObject();
+        CallShip();
+        CallShipUI();
+    }
+
+    public virtual void WorkBed(string message, TextJourneyObject textJourney)
+    {
+        textJourney.targetText.SetText(message.GetColor(textJourney.targetText.notSelectColor));
+    }
+
+    #region Protected
+
+    protected void GetData()
+    {
+        GameText.Initialization(types);
+        data = GameText.GetOneType(types);
+    }
+
+    protected void SetWork(string message, string type, TextJourneyObject textJourney)
+    {
+
+
+        Action<string> Change = (str) => {
+            WorkChange(message, str, textJourney);
+        };
+
+        Action Good = () => {
+            WorkGood();
+        };
+
+        Action Bed = () => {
+            WorkBed(message, textJourney);
+        };
+
+        EnterTextController.Add(message, Change, Good, Bed);
     }
 
     /// <summary>
@@ -43,65 +129,30 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
         EnterTextController.RemoveAll();
     }
 
-    public void Sort()
+    protected void ClearUI()
     {
-        data.Remove(data.Random());
-    }
-
-    public virtual void GetData()
-    {
-        GameText.Initialization(types);
-        data = GameText.GetOneType(types);
-
-    }
-
-    public virtual void SetTextUi()
-    {
-        for (int i = 0; i < data.Count; i++)
+        for (int i = 0; i < listTexts.Count; i++)
         {
-            TextJourneyObject temp = listTexts.Find(x => x.type == data[i].type);
-            temp.targetText.SetText(data[i].text.GetColor(temp.targetText.notSelectColor));
-            SetWork(data[i].text, data[i].type);
-            temp.targetText.gameObject.SetActive(true);
+            listTexts[i].targetText.gameObject.SetActive(false);
         }
     }
 
-    public virtual void SetWork(string message, string type)
+    protected void ClearObject()
     {
-
-
-        Action<string> Change = (str) => {
-
-        };
-
-        Action Good = () => {
-            Work(type);
-        };
-
-        Action Bed = () => {
-
-        };
-
-        EnterTextController.Add(message, Change, Good, Bed);
-    }
-
-    public virtual void ClearObject()
-    {
-
-        ShipJourney.ShowMoveTextUI?.Invoke();
-
-        ShipCamera.moveTransform = ShipJourney.CameraTransform;
-        ShipCamera.rotateTransform = ShipJourney.ShipTransform;
-
         Destroy(this.gameObject);
     }
 
-
-    public virtual void Work(string type)
-    {
-        ClearObject();
+    protected void CallShip() {
+        ShipCamera.moveTransform = ShipJourney.CameraTransform;
+        ShipCamera.rotateTransform = ShipJourney.ShipTransform;
     }
 
+    protected void CallShipUI()
+    {
+        ShipJourney.ShowMoveTextUI?.Invoke();
+    }
+
+    #endregion
 }
 
 [System.Serializable]

@@ -27,6 +27,10 @@ public class JourneyPointData
 
     public void ActiveName(JourneyTargetText _journeyTargetText, TextData textData)
     {
+        OnEndMove = null;
+        OnEndMove += () => { Debug.Log("Test"); };
+        OnEndMove += () => { journeyPoint.ShowText(); };
+
         typeMessage = textData.type;
         message = textData.text;
         journeyTargetText = _journeyTargetText;
@@ -34,6 +38,7 @@ public class JourneyPointData
         Action Stop = () => {
             ShipCamera.moveTransform = journeyPoint.cameraPosition;
             ShipCamera.rotateTransform = journeyPoint.cameraView;
+            OnEndMove?.Invoke();
         };
 
         Action<string> Change = (str) => {

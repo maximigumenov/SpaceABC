@@ -6,7 +6,7 @@ using System;
 using EnterTextSpace;
 using MoveSpace;
 
-public class TestJourneyObject : MonoBehaviour, IJourneyObject
+public class TestJourneyObject : MonoBehaviour
 {
     public Transform _cameraPosition;
     public Transform _cameraView;
