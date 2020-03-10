@@ -24,6 +24,6 @@ public interface IJourneyObject
     /// <param name="_text"></param>
     /// <param name="textJourney"></param>
     void WorkChange(string message, string _text, TextJourneyObject textJourney);
-    void WorkGood();
+    void WorkGood(TextJourneyObject textJourney);
     void WorkBed(string message, TextJourneyObject textJourney);
 }

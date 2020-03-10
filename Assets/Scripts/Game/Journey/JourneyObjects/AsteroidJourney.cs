@@ -17,9 +17,7 @@ public class AsteroidJourney : BaseJourney, IJourneyObject, IJourneyObjectData
     {
         base.Sort(out notActiveType);
 
-        TextData random = data.Random();
-        notActiveType.Add(random.type);
-        data.Remove(random);
-        EnterTextController.Remove(random.text);
+        notActiveType.Add("JourneyMove_ENG");
+        notActiveType.Add("JourneyExploration_ENG");
     }
 }

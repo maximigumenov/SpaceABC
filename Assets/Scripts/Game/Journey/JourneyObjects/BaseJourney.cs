@@ -31,6 +31,7 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
 
         ClearData();
         GetData();
+        JourneyPhase.EffectFinish += EndAnim;
     }
 
     
@@ -74,16 +75,19 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
         textJourney.targetText.SetText(message.GetColor(_text, textJourney.targetText.selectColor, textJourney.targetText.notSelectColor));
     }
 
-    public virtual void WorkGood()
+    public virtual void WorkGood(TextJourneyObject textJourney)
     {
         EnterTextController.RemoveAll();
-        
-        StartCoroutine(WaitAnim());
+        if (textJourney.effect != null)
+        {
+            textJourney.effect.Show();
+        }
+        ClearUI();
     }
 
-    IEnumerator WaitAnim() {
-        ClearUI();
-        yield return new WaitForSeconds(5);
+    
+
+    public void EndAnim(){
         ClearObject();
         CallShip();
         CallShipUI();
@@ -111,7 +115,7 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
         };
 
         Action Good = () => {
-            WorkGood();
+            WorkGood(textJourney);
         };
 
         Action Bed = () => {
@@ -153,6 +157,11 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
     }
 
     #endregion
+
+    private void OnDestroy()
+    {
+        JourneyPhase.EffectFinish -= EndAnim;
+    }
 }
 
 [System.Serializable]
@@ -160,4 +169,5 @@ public class TextJourneyObject
 {
     public string type;
     public JourneyTargetText targetText;
+    public BaseEffect effect;
 }

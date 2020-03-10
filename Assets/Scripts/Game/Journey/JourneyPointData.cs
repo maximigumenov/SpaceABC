@@ -28,7 +28,6 @@ public class JourneyPointData
     public void ActiveName(JourneyTargetText _journeyTargetText, TextData textData)
     {
         OnEndMove = null;
-        OnEndMove += () => { Debug.Log("Test"); };
         OnEndMove += () => { journeyPoint.ShowText(); };
 
         typeMessage = textData.type;
