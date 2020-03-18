@@ -253,14 +253,14 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets/Plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>E:/Job/Projects/SpaceABC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>E:/Job/Projects/SpaceABC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>E:/Job/Projects/SpaceABC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.Editor">
-      <HintPath>E:/Job/Projects/SpaceABC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>E:/Job/Projects/SpaceABC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>E:\Job\Program\Unity2019.2.12\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\mscorlib.dll</HintPath>
@@ -626,6 +626,10 @@
       <Project>{F37EB8D3-595B-2A8E-9D57-98253E4F534B}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{3A848AB7-9891-EDDA-D555-BF184C2F81F4}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{BA355BDC-D9AC-4DF0-CBE7-0822160BAB0E}</Project>
       <Name>UnityEngine.UI</Name>
@@ -638,6 +642,10 @@
       <Project>{C12CEEC6-100C-58A2-DE36-314E4DE5E40B}</Project>
       <Name>Unity.CollabProxy.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
+      <Project>{CBEC4DCB-1B2B-E03B-0387-393C59967E8B}</Project>
+      <Name>Unity.Postprocessing.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{C540080A-BED7-978E-DDFC-EE09E5DBB722}</Project>
       <Name>Unity.Rider.Editor</Name>
@@ -645,18 +653,6 @@
     <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
       <Project>{FB59C224-D4E6-39F8-9116-391BC3D3E954}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{3BB3FA27-B9AA-7EC6-4E7C-EE51EC3271F7}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{3A848AB7-9891-EDDA-D555-BF184C2F81F4}</Project>
-      <Name>Unity.TextMeshPro.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Postprocessing.Editor.csproj">
-      <Project>{CBEC4DCB-1B2B-E03B-0387-393C59967E8B}</Project>
-      <Name>Unity.Postprocessing.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Postprocessing.Runtime.csproj">
       <Project>{49FCAFB7-7D0A-B3F6-2171-B4248A94EC21}</Project>
@@ -669,6 +665,10 @@
     <ProjectReference Include="Unity.Analytics.DataPrivacy.csproj">
       <Project>{D6E266C6-3D1F-28C8-9FEB-2A01E44DBF77}</Project>
       <Name>Unity.Analytics.DataPrivacy</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{3BB3FA27-B9AA-7EC6-4E7C-EE51EC3271F7}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -718,6 +718,11 @@
     <Compile Include="Assets\Scripts\Game\Ship\ShipCamera.cs" />
     <Compile Include="Assets\Scripts\Game\Ship\ShipJourney.cs" />
     <Compile Include="Assets\Scripts\Game\Ship\ShipJourneyText.cs" />
+    <Compile Include="Assets\Scripts\Game\Strategic\MoveObject\BaseMoveObject.cs" />
+    <Compile Include="Assets\Scripts\Game\Strategic\MoveObject\IMoveObject.cs" />
+    <Compile Include="Assets\Scripts\Game\Strategic\SetText\BaseSetText.cs" />
+    <Compile Include="Assets\Scripts\Game\Strategic\SetText\ISetText.cs" />
+    <Compile Include="Assets\Scripts\Game\SubEffects\MoveSubEffect.cs" />
     <Compile Include="Assets\Scripts\Game\TypeTexts\JourneyShipTypeTexts.cs" />
     <Compile Include="Assets\Scripts\Game\TypeTexts\ShipTypeTexts.cs" />
     <Compile Include="Assets\Scripts\JobS\AsyncJob.cs" />
