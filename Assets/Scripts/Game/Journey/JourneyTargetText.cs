@@ -12,7 +12,19 @@ public class JourneyTargetText : MonoBehaviour
 
     public void SetText(string message) {
         textPoint.text = message;
+        
     }
 
-    
+    private void Start()
+    {
+        
+        StartCoroutine(Wait());
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForFixedUpdate();
+        textPoint.text = textPoint.text + " ";
+        textPoint.text = textPoint.text.Substring(0, textPoint.text.Length - 1);
+    }
 }
