@@ -60,3 +60,11 @@ MonoBehaviour:
     _content:
       _path: Prefabs/Journey/Objects/DrillObject
       _loaded: {fileID: 0}
+  - _id: DrillObjectGood
+    _content:
+      _path: Prefabs/Journey/Objects/DrillObjectGood
+      _loaded: {fileID: 0}
+  - _id: DrillObjectBad
+    _content:
+      _path: Prefabs/Journey/Objects/DrillObjectBad
+      _loaded: {fileID: 0}

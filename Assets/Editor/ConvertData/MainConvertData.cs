@@ -33,6 +33,8 @@ public class MainConvertData1
         CreateData("JourneyMove");
         CreateData("JourneyWork");
         CreateData("JourneyExploration");
+        CreateData("FindAsteroid");
+        CreateData("TransitionMetal");
     }
 
     private static void CreateData(string nameData) {
