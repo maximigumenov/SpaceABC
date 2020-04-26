@@ -68,3 +68,7 @@ MonoBehaviour:
     _content:
       _path: Prefabs/Journey/Objects/DrillObjectBad
       _loaded: {fileID: 0}
+  - _id: Teleport
+    _content:
+      _path: Prefabs/Effect/Teleport
+      _loaded: {fileID: 0}
