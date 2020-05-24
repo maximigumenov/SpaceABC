@@ -16,8 +16,5 @@ public class AsteroidJourney : BaseJourney, IJourneyObject, IJourneyObjectData
     public override void Sort(out List<string> notActiveType)
     {
         base.Sort(out notActiveType);
-
-        notActiveType.Add("JourneyMove_ENG");
-        notActiveType.Add("JourneyExploration_ENG");
     }
 }

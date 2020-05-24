@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Game\Effects\DrillEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\IEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\IEffectPhase.cs" />
+    <Compile Include="Assets\Scripts\Game\Effects\ResourceGatheringEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\ShipEffect\TeleportShip.cs" />
     <Compile Include="Assets\Scripts\Game\EffectsManager\Effect.cs" />
     <Compile Include="Assets\Scripts\Game\EffectsManager\IEffectCount.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Assets\Scripts\Game\Journey\JourneyManager.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\AsteroidJourney.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\BaseJourney.cs" />
+    <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\CrashJourney.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\IJourneyObject.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\IJourneyObjectData.cs" />
     <Compile Include="Assets\Scripts\Game\Journey\JourneyObjects\TestJourneyObject.cs" />

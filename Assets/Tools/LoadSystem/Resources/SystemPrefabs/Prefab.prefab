@@ -72,3 +72,11 @@ MonoBehaviour:
     _content:
       _path: Prefabs/Effect/Teleport
       _loaded: {fileID: 0}
+  - _id: CrashJourney
+    _content:
+      _path: Prefabs/Journey/Objects/CrashJourney
+      _loaded: {fileID: 0}
+  - _id: BaseJourney
+    _content:
+      _path: Prefabs/Journey/BaseJourney
+      _loaded: {fileID: 0}

@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Game/Journey.unity
+    guid: 7e9962befccfe6042bc74febe934ed93
+  - enabled: 1
+    path: Assets/Scenes/Game/SelectMision.unity
+    guid: e22a8a8a786624748a9e2c65c3273274
   m_configObjects: {}

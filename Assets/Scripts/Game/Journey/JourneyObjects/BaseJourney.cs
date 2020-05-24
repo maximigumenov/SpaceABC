@@ -10,7 +10,7 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
 {
     public Transform _cameraPosition;
     public Transform _cameraView;
-    public List<string> _types;
+    [HideInInspector] public List<string> _types;
     public List<string> types { get { return _types; } set { _types = value; } }
 
     public Transform cameraPosition { get { return _cameraPosition; } }
@@ -20,9 +20,17 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
 
     public List<TextJourneyObject> listTexts;
 
-    public List<TextData> data = new List<TextData>();
+    [HideInInspector] public List<TextData> data = new List<TextData>();
 
     public virtual void Start() {
+        _types = new List<string>();
+
+        for (int i = 0; i < listTexts.Count; i++)
+        {
+            _types.Add(listTexts[i].type);
+        }
+
+        Debug.LogWarning("Развернуть объект приключения к кораблю");
         moveWork.RotateTo(transform, ShipJourney.ShipTransform, 100);
         moveWork.RotateTo(transform, ShipJourney.ShipTransform, 100);
         moveWork.RotateTo(transform, ShipJourney.ShipTransform, 100);
@@ -38,6 +46,7 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
 
     public virtual void Sort(out List<string> notActiveType)
     {
+        Debug.LogWarning("Сортировать данные, чтобы показать те елементы, с которыми можно взаимодействовать и ввернуть те, которые надо выключить");
         notActiveType = new List<string>();
     }
 
@@ -46,6 +55,7 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
     public virtual void SetTextUi()
     {
         List<TextJourneyObject> texts = new List<TextJourneyObject>();
+        Debug.LogWarning("Инициализировать данные для елементов с текстом");
         for (int i = 0; i < data.Count; i++)
         {
                 TextJourneyObject temp = listTexts.Find(x => x.type == data[i].type);
@@ -56,8 +66,10 @@ public class BaseJourney : MonoBehaviour, IJourneyObject
         }
 
         List<string> notActiveType = new List<string>();
+
         Sort(out notActiveType);
 
+        Debug.LogWarning("Выключить необходимые елементы");
         for (int i = 0; i < notActiveType.Count; i++)
         {
             TextJourneyObject temp = listTexts.Find(x => x.type == notActiveType[i]);

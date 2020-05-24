@@ -2,8 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEffect : MonoBehaviour, IEffect
+public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
 {
+    public Transform centre;
+    public Transform cameraPosition;
+
+    public virtual void PhaseFinish()
+    {
+
+    }
+
+    public virtual void PhaseGame()
+    {
+        ShipCamera.moveTransform = cameraPosition;
+        ShipCamera.rotateTransform = centre;
+    }
+
+    public virtual void PhaseStart()
+    {
+
+    }
+
     public virtual void Show()
     {
         Subscribe();

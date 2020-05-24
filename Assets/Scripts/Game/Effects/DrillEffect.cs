@@ -5,29 +5,34 @@ using UnityEngine;
 
 public class DrillEffect : BaseEffect, IEffect, IEffectPhase
 {
+    [Header("Text library")]
+    public string nameObjectMove = "TransitionMetal_ENG";
+    [Header("Prefab names")]
+    public string namePrefab = "DrillObject";
+    public string nameGoodPrefab = "DrillObjectGood";
+    public string nameBadPrefab = "DrillObjectBad";
+    [Space]
     public float timeGame = 5;
     public List<GameObject> listShowObjects;
     public List<GameObject> listHideObjects;
-    public Transform centre;
-    public Transform cameraPosition;
     [Space]
     public Transform transformGenerate;
 
     public List<Transform> targetsToMove;
 
-    public void PhaseFinish()
+    public override void PhaseFinish()
     {
         JourneyPhase.EffectFinish?.Invoke();
     }
 
-    public void PhaseGame()
+    public override void PhaseGame()
     {
         StartCoroutine(WaitGame());
         ShipCamera.moveTransform = cameraPosition;
         ShipCamera.rotateTransform = centre;
     }
 
-    public void PhaseStart()
+    public override void PhaseStart()
     {
         for (int i = 0; i < listShowObjects.Count; i++)
         {
@@ -39,7 +44,7 @@ public class DrillEffect : BaseEffect, IEffect, IEffectPhase
             listHideObjects[i].SetActive(false);
         }
 
-        GameText.Initialization(new List<string>(new string[] { "TransitionMetal_ENG"}));
+        GameText.Initialization(new List<string>(new string[] { nameObjectMove }));
         StartCoroutine(WaitCreateTarget(0, 5));
 
         JourneyPhase.PhaseGame?.Invoke();
@@ -65,14 +70,14 @@ public class DrillEffect : BaseEffect, IEffect, IEffectPhase
         
     }
     private void CreateTarget(int step, int maxStep) {
-       GameObject targetObject = Instantiate(Load.Prefab.Get("DrillObject"), transformGenerate);
+       GameObject targetObject = Instantiate(Load.Prefab.Get(namePrefab), transformGenerate);
         MoveSubEffect moveSubEffect = targetObject.GetComponent<MoveSubEffect>();
         Transform targetMove = targetsToMove.Random();
         EnterTextController.RemoveAll();
-        moveSubEffect.baseSetText.Show("TransitionMetal_ENG");
+        moveSubEffect.baseSetText.Show(nameObjectMove);
         moveSubEffect.baseSetText.OnGood = (str, textObj) =>
         {
-            GameObject targetObjectGood = Instantiate(Load.Prefab.Get("DrillObjectGood"), transformGenerate);
+            GameObject targetObjectGood = Instantiate(Load.Prefab.Get(nameGoodPrefab), transformGenerate);
             targetObjectGood.transform.SetParent(null);
             targetObjectGood.transform.position = moveSubEffect.transform.position;
             moveSubEffect.StopMoveTo(targetObject.transform, targetMove);
@@ -82,7 +87,7 @@ public class DrillEffect : BaseEffect, IEffect, IEffectPhase
 
         moveSubEffect.baseSetText.OnBed = (str, textObj) =>
         {
-            GameObject targetObjectBad = Instantiate(Load.Prefab.Get("DrillObjectBad"), transformGenerate);
+            GameObject targetObjectBad = Instantiate(Load.Prefab.Get(nameBadPrefab), transformGenerate);
             targetObjectBad.transform.SetParent(null);
             targetObjectBad.transform.position = moveSubEffect.transform.position;
             moveSubEffect.StopMoveTo(targetObject.transform, targetMove);
