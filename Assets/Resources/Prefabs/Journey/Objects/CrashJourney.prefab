@@ -207,10 +207,7 @@ MonoBehaviour:
   _cameraPosition: {fileID: 5856187363290696197}
   _cameraView: {fileID: 4923794179630740812}
   _types: []
-  listTexts:
-  - type: 
-    targetText: {fileID: 0}
-    effect: {fileID: 0}
+  listTexts: []
   data: []
 --- !u!1 &5154214199703146241
 GameObject:
