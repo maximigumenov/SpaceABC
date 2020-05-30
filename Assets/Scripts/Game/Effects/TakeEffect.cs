@@ -21,20 +21,61 @@ public class TakeEffect : BaseEffect, IEffect, IEffectPhase
 
     public List<Transform> targetsToMove;
 
-    public override void PhaseFinish()
+    public override void PhaseStart()
     {
-        base.PhaseFinish();
+        base.PhaseStart();
+        for (int i = 0; i < listShowObjects.Count; i++)
+        {
+            listShowObjects[i].SetActive(true);
+        }
+
+        for (int i = 0; i < listHideObjects.Count; i++)
+        {
+            listHideObjects[i].SetActive(false);
+        }
+
+        GameText.Initialization(new List<string>(new string[] { nameObjectMove }));
+        StartCoroutine(WaitCreateTarget(0, 5));
+
+        JourneyPhase.PhaseGame?.Invoke();
     }
 
     public override void PhaseGame()
     {
         base.PhaseGame();
+        StartCoroutine(WaitGame());
     }
 
-    public override void PhaseStart()
+    public override void PhaseFinish()
     {
-        base.PhaseStart();
+        base.PhaseFinish();
+
+        
     }
+
+    IEnumerator WaitGame()
+    {
+        yield return new WaitForSeconds(timeGame);
+
+    }
+
+    IEnumerator WaitCreateTarget(int step, int maxStep)
+    {
+        yield return new WaitForSeconds(1);
+        if (step < maxStep)
+        {
+            CreateTarget(step + 1, maxStep);
+        }
+        else
+        {
+            JourneyPhase.PhaseFinish?.Invoke();
+        }
+
+    }
+
+    
+
+   
 
     private void CreateTarget(int step, int maxStep)
     {

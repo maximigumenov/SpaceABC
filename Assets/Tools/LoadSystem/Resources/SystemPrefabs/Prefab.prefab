@@ -56,6 +56,10 @@ MonoBehaviour:
     _content:
       _path: Prefabs/Journey/Objects/AsteroidJourney
       _loaded: {fileID: 0}
+  - _id: CrashObject
+    _content:
+      _path: Prefabs/Journey/Objects/CrashObject
+      _loaded: {fileID: 0}
   - _id: DrillObject
     _content:
       _path: Prefabs/Journey/Objects/DrillObject

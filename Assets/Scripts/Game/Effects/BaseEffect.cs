@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using MoveSpace;
 
 public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
 {
     public Transform centre;
     public Transform cameraPosition;
+    public Transform shipPosition;
 
     public virtual void PhaseFinish()
     {
@@ -22,7 +24,7 @@ public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
 
     public virtual void PhaseStart()
     {
-
+        SetShipPosition();
     }
 
     public virtual void Show()
@@ -43,6 +45,13 @@ public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
         JourneyPhase.PhaseStart -= PhaseStart;
         JourneyPhase.PhaseGame -= PhaseGame;
         JourneyPhase.PhaseFinish -= PhaseFinish;
+    }
+
+    protected void SetShipPosition() {
+        if (shipPosition != null)
+        {
+            MoveManager.Add(ShipJourney.ShipTransform, shipPosition, 10, 10, 0.1f);
+        }
     }
 
     protected void CreateTarget(
