@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7686da253de4a4c40a05ed5778bae538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  namePrefab: CrashJourney
+  namePrefab: AsteroidJourney

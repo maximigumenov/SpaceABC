@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DrillEffect : BaseEffect, IEffect, IEffectPhase
 {
@@ -69,55 +70,15 @@ public class DrillEffect : BaseEffect, IEffect, IEffectPhase
         }
         
     }
-    private void CreateTarget(int step, int maxStep) {
-       GameObject targetObject = Instantiate(Load.Prefab.Get(namePrefab), transformGenerate);
-        MoveSubEffect moveSubEffect = targetObject.GetComponent<MoveSubEffect>();
-        Transform targetMove = targetsToMove.Random();
-        EnterTextController.RemoveAll();
-        moveSubEffect.baseSetText.Show(nameObjectMove);
-        moveSubEffect.baseSetText.OnGood = (str, textObj) =>
-        {
-            GameObject targetObjectGood = Instantiate(Load.Prefab.Get(nameGoodPrefab), transformGenerate);
-            targetObjectGood.transform.SetParent(null);
-            targetObjectGood.transform.position = moveSubEffect.transform.position;
-            moveSubEffect.StopMoveTo(targetObject.transform, targetMove);
-            
-
-        };
-
-        moveSubEffect.baseSetText.OnBed = (str, textObj) =>
-        {
-            GameObject targetObjectBad = Instantiate(Load.Prefab.Get(nameBadPrefab), transformGenerate);
-            targetObjectBad.transform.SetParent(null);
-            targetObjectBad.transform.position = moveSubEffect.transform.position;
-            moveSubEffect.StopMoveTo(targetObject.transform, targetMove);
-        };
-
-        moveSubEffect.moveObject.OnStop = () => {
-            Debug.LogError("Stop");
-            Destroy(targetObject);
-            EnterTextController.RemoveAll();
-            StartCoroutine(WaitCreateTarget(step, maxStep));
-        };
-
-       
-        moveSubEffect.MoveTo(targetObject.transform, targetMove);
-    }
-
-    public override void Subscribe()
-    {
-        base.Subscribe();
-        JourneyPhase.PhaseStart += PhaseStart;
-        JourneyPhase.PhaseGame += PhaseGame;
-        JourneyPhase.PhaseFinish += PhaseFinish;
-    }
-
-    public override void Unsubscribe()
-    {
-        base.Unsubscribe();
-        JourneyPhase.PhaseStart -= PhaseStart;
-        JourneyPhase.PhaseGame -= PhaseGame;
-        JourneyPhase.PhaseFinish -= PhaseFinish;
-    }
     
+
+    private void CreateTarget(int step, int maxStep)
+    {
+        Action CallWithStop = () => { StartCoroutine(WaitCreateTarget(step, maxStep)); };
+        Base_OnGood base_OnGood = new Base_OnGood(nameGoodPrefab);
+        Base_OnBad base_OnBad = new Base_OnBad(nameBadPrefab);
+        Base_OnStop base_OnStop = new Base_OnStop(CallWithStop);
+        
+        CreateTarget(namePrefab, nameObjectMove, transformGenerate, targetsToMove, base_OnGood, base_OnBad, base_OnStop);
+    }
 }

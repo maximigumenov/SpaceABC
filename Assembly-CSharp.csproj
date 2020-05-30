@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Game\Effects\IEffectPhase.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\ResourceGatheringEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\ShipEffect\TeleportShip.cs" />
+    <Compile Include="Assets\Scripts\Game\Effects\TakeEffect.cs" />
     <Compile Include="Assets\Scripts\Game\EffectsManager\Effect.cs" />
     <Compile Include="Assets\Scripts\Game\EffectsManager\IEffectCount.cs" />
     <Compile Include="Assets\Scripts\Game\EffectsManager\ShipEffect\FinishTeleport.cs" />
