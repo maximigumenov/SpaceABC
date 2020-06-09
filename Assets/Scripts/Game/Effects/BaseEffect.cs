@@ -13,17 +13,19 @@ public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
 
     public virtual void PhaseFinish()
     {
-
+        Debug.LogWarning("PhaseFinish " + GetType().Name);
     }
 
     public virtual void PhaseGame()
     {
+        Debug.LogWarning("PhaseGame " + GetType().Name);
         ShipCamera.moveTransform = cameraPosition;
         ShipCamera.rotateTransform = centre;
     }
 
     public virtual void PhaseStart()
     {
+        Debug.LogWarning("PhaseStart " + GetType().Name);
         SetShipPosition();
     }
 
@@ -121,6 +123,7 @@ public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
 
         public void Call()
         {
+            Debug.LogWarning("Верно ввел название");
             GameObject targetObjectGood = Instantiate(Load.Prefab.Get(nameGoodPrefab), transformGenerate);
             targetObjectGood.transform.SetParent(null);
             targetObjectGood.transform.position = moveSubEffect.transform.position;
@@ -155,6 +158,7 @@ public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
 
         public void Call()
         {
+            Debug.LogWarning("Не верно ввел название");
             GameObject targetObjectBad = Instantiate(Load.Prefab.Get(nameBadPrefab), transformGenerate);
             targetObjectBad.transform.SetParent(null);
             targetObjectBad.transform.position = moveSubEffect.transform.position;
@@ -181,7 +185,7 @@ public class BaseEffect : MonoBehaviour, IEffect, IEffectPhase
 
         public void Call()
         {
-            Debug.LogError("Stop");
+            Debug.LogWarning("Движение остановилось");
             Destroy(targetObject);
             EnterTextController.RemoveAll();
             OnCall?.Invoke();

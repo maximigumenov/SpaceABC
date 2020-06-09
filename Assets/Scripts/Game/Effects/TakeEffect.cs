@@ -43,7 +43,7 @@ public class TakeEffect : BaseEffect, IEffect, IEffectPhase
     public override void PhaseGame()
     {
         base.PhaseGame();
-        StartCoroutine(WaitGame());
+        
     }
 
     public override void PhaseFinish()
@@ -53,15 +53,12 @@ public class TakeEffect : BaseEffect, IEffect, IEffectPhase
         
     }
 
-    IEnumerator WaitGame()
-    {
-        yield return new WaitForSeconds(timeGame);
-
-    }
+    
 
     IEnumerator WaitCreateTarget(int step, int maxStep)
     {
         yield return new WaitForSeconds(1);
+        Debug.LogError("WaitCreateTarget " + step + " " + maxStep);
         if (step < maxStep)
         {
             CreateTarget(step + 1, maxStep);
@@ -73,13 +70,13 @@ public class TakeEffect : BaseEffect, IEffect, IEffectPhase
 
     }
 
-    
 
-   
+
+
 
     private void CreateTarget(int step, int maxStep)
     {
-        Action CallWithStop = () => {  };
+        Action CallWithStop = () => { StartCoroutine(WaitCreateTarget(step, maxStep)); };
         Base_OnGood base_OnGood = new Base_OnGood(nameGoodPrefab);
         Base_OnBad base_OnBad = new Base_OnBad(nameBadPrefab);
         Base_OnStop base_OnStop = new Base_OnStop(CallWithStop);

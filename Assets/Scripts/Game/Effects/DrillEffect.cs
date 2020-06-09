@@ -28,7 +28,6 @@ public class DrillEffect : BaseEffect, IEffect, IEffectPhase
 
     public override void PhaseGame()
     {
-        StartCoroutine(WaitGame());
         ShipCamera.moveTransform = cameraPosition;
         ShipCamera.rotateTransform = centre;
     }
@@ -52,10 +51,7 @@ public class DrillEffect : BaseEffect, IEffect, IEffectPhase
     }
 
 
-    IEnumerator WaitGame() {
-        yield return new WaitForSeconds(timeGame);
-        
-    }
+    
 
     IEnumerator WaitCreateTarget(int step, int maxStep)
     {
