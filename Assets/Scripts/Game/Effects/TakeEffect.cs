@@ -49,8 +49,8 @@ public class TakeEffect : BaseEffect, IEffect, IEffectPhase
     public override void PhaseFinish()
     {
         base.PhaseFinish();
+        JourneyPhase.EffectFinish?.Invoke();
 
-        
     }
 
     
@@ -58,7 +58,6 @@ public class TakeEffect : BaseEffect, IEffect, IEffectPhase
     IEnumerator WaitCreateTarget(int step, int maxStep)
     {
         yield return new WaitForSeconds(1);
-        Debug.LogError("WaitCreateTarget " + step + " " + maxStep);
         if (step < maxStep)
         {
             CreateTarget(step + 1, maxStep);

@@ -19,7 +19,6 @@ namespace Strategic
         public void Show(string types)
         {
             TextData textData = GameText.Get(types);
-            Debug.LogError(textData.text);
             SetWork(textData.text, textData.type, textJourney);
         }
 

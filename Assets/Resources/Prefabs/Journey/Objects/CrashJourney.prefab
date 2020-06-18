@@ -916,12 +916,12 @@ PrefabInstance:
     - target: {fileID: 3615771788419819271, guid: 4954081957361b741bfceb0adb1054d1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 17.1
       objectReference: {fileID: 0}
     - target: {fileID: 3615771788419819271, guid: 4954081957361b741bfceb0adb1054d1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.92
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 3712324819413999649, guid: 4954081957361b741bfceb0adb1054d1,
         type: 3}
@@ -946,12 +946,12 @@ PrefabInstance:
     - target: {fileID: 3712324819413999649, guid: 4954081957361b741bfceb0adb1054d1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 17.1
       objectReference: {fileID: 0}
     - target: {fileID: 3712324819413999649, guid: 4954081957361b741bfceb0adb1054d1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.92
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 3828243504468341604, guid: 4954081957361b741bfceb0adb1054d1,
         type: 3}
@@ -962,6 +962,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592472563634204857, guid: 4954081957361b741bfceb0adb1054d1,
+        type: 3}
+      propertyPath: nameGoodPrefab
+      value: CrashObjectGood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592472563634204857, guid: 4954081957361b741bfceb0adb1054d1,
+        type: 3}
+      propertyPath: nameBadPrefab
+      value: CrashObjectBad
       objectReference: {fileID: 0}
     - target: {fileID: 6912314232737761411, guid: 4954081957361b741bfceb0adb1054d1,
         type: 3}
