@@ -54,31 +54,31 @@ MonoBehaviour:
       _loaded: {fileID: 0}
   - _id: AsteroidJourney
     _content:
-      _path: Prefabs/Journey/Objects/AsteroidJourney
+      _path: Prefabs/Journey/Objects/Quests/AsteroidJourney
       _loaded: {fileID: 0}
   - _id: CrashObject
     _content:
-      _path: Prefabs/Journey/Objects/CrashObject
+      _path: Prefabs/Journey/Objects/CrashObjects/CrashObject
       _loaded: {fileID: 0}
   - _id: DrillObject
     _content:
-      _path: Prefabs/Journey/Objects/DrillObject
+      _path: Prefabs/Journey/Objects/DrillObjects/DrillObject
       _loaded: {fileID: 0}
   - _id: DrillObjectGood
     _content:
-      _path: Prefabs/Journey/Objects/DrillObjectGood
+      _path: Prefabs/Journey/Objects/DrillObjects/DrillObjectGood
       _loaded: {fileID: 0}
   - _id: CrashObjectGood
     _content:
-      _path: Prefabs/Journey/Objects/CrashObjectGood
+      _path: Prefabs/Journey/Objects/CrashObjects/CrashObjectGood
       _loaded: {fileID: 0}
   - _id: DrillObjectBad
     _content:
-      _path: Prefabs/Journey/Objects/DrillObjectBad
+      _path: Prefabs/Journey/Objects/DrillObjects/DrillObjectBad
       _loaded: {fileID: 0}
   - _id: CrashObjectBad
     _content:
-      _path: Prefabs/Journey/Objects/CrashObjectBad
+      _path: Prefabs/Journey/Objects/CrashObjects/CrashObjectBad
       _loaded: {fileID: 0}
   - _id: Teleport
     _content:
@@ -86,7 +86,7 @@ MonoBehaviour:
       _loaded: {fileID: 0}
   - _id: CrashJourney
     _content:
-      _path: Prefabs/Journey/Objects/CrashJourney
+      _path: Prefabs/Journey/Objects/Quests/CrashJourney
       _loaded: {fileID: 0}
   - _id: BaseJourney
     _content:

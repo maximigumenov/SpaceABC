@@ -124,6 +124,7 @@
     <Compile Include="Assets\Scripts\Game\Strategic\MoveObject\IMoveObject.cs" />
     <Compile Include="Assets\Scripts\Game\Strategic\SetText\BaseSetText.cs" />
     <Compile Include="Assets\Scripts\Game\Strategic\SetText\ISetText.cs" />
+    <Compile Include="Assets\Scripts\Game\SubEffects\CameraAroundTarget.cs" />
     <Compile Include="Assets\Scripts\Game\SubEffects\MoveSubEffect.cs" />
     <Compile Include="Assets\Scripts\Game\SubEffects\MoveToMainShip.cs" />
     <Compile Include="Assets\Scripts\Game\TypeTexts\JourneyShipTypeTexts.cs" />
