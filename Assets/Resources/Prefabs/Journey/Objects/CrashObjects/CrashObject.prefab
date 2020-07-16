@@ -47,8 +47,8 @@ MonoBehaviour:
   rotateObject: {fileID: 3855584812983932738}
   targetCentre: {fileID: 4711046569632201135}
   targetMark: {fileID: 3855584812983932738}
-  speadMove: 1
-  speadRotate: 0.01
+  speadMove: 0.3
+  speadRotate: 1
   vectorRotate: {x: 0, y: 0, z: 0.1}
 --- !u!114 &8797446559406366836
 MonoBehaviour:
@@ -178,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 3806345573714822844, guid: b8ae10a38ddddf4459473f2dfdaf0030,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 26.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3806345573714822844, guid: b8ae10a38ddddf4459473f2dfdaf0030,
         type: 3}

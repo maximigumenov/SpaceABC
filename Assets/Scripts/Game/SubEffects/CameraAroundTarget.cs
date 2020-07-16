@@ -30,8 +30,11 @@ public class CameraAroundTarget : MonoBehaviour
         ShipCamera.moveTransform = targetCentre;
         ShipCamera.rotateTransform = targetMark;
 
-        speadMove = ShipCamera.SpeedMove;
-        speadRotate = ShipCamera.SpeedRotate;
+        tempSpeadMove = ShipCamera.SpeedMove;
+        tempSpeadRotate = ShipCamera.SpeedRotate;
+
+        ShipCamera.SpeedMove = speadMove;
+        ShipCamera.SpeedRotate = speadRotate;
     }
 
     void Rotate() {
@@ -40,7 +43,7 @@ public class CameraAroundTarget : MonoBehaviour
 
     private void OnDestroy()
     {
-        ShipCamera.SpeedMove = speadMove;
-        ShipCamera.SpeedRotate = speadRotate;
+        ShipCamera.SpeedMove = tempSpeadMove;
+        ShipCamera.SpeedRotate = tempSpeadRotate;
     }
 }
