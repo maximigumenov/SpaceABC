@@ -439,6 +439,163 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bf8856c5fe21124db0ddc808d77e420, type: 3}
+--- !u!1001 &1947002848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4204611414420587112, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_Name
+      value: FastScripting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415649348366391469, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: fastScripting_Code.message
+      value: "using System.Collections;\r\nusing System.Collections.Generic;\r\nusing
+        UnityEngine;\r\nusing System;\r\n\r\npublic class RaceEffect : BaseEffect,
+        IEffect, IEffectPhase\r\n{\r\n    [Header(\"Text library\")]\r\n    public
+        string nameObjectMove = \"TransitionMetal_ENG\";\r\n    [Header(\"Prefab
+        names\")]\r\n    public string namePrefab = \"DrillObject\";\r\n    public
+        string nameGoodPrefab = \"DrillObjectGood\";\r\n    public string nameBadPrefab
+        = \"DrillObjectBad\";\r\n    [Space]\r\n    public float timeGame = 5;\r\n   
+        public List<GameObject> listShowObjects;\r\n    public List<GameObject> listHideObjects;\r\n   
+        [Space]\r\n    public Transform transformGenerate;\r\n\r\n    public List<Transform>
+        targetsToMove;\r\n\r\n    public override void PhaseStart()\r\n    {\r\n       
+        base.PhaseStart();\r\n        for (int i = 0; i < listShowObjects.Count;
+        i++)\r\n        {\r\n            listShowObjects[i].SetActive(true);\r\n       
+        }\r\n\r\n        for (int i = 0; i < listHideObjects.Count; i++)\r\n       
+        {\r\n            listHideObjects[i].SetActive(false);\r\n        }\r\n\r\n       
+        GameText.Initialization(new List<string>(new string[] { nameObjectMove }));\r\n       
+        StartCoroutine(WaitCreateTarget(0, 5));\r\n\r\n        JourneyPhase.PhaseGame?.Invoke();\r\n   
+        }\r\n\r\n    public override void PhaseGame()\r\n    {\r\n        base.PhaseGame();\r\n\r\n   
+        }\r\n\r\n    public override void PhaseFinish()\r\n    {\r\n        base.PhaseFinish();\r\n       
+        JourneyPhase.EffectFinish?.Invoke();\r\n\r\n    }\r\n\r\n\r\n\r\n    IEnumerator
+        WaitCreateTarget(int step, int maxStep)\r\n    {\r\n        yield return
+        new WaitForSeconds(1);\r\n        if (step < maxStep)\r\n        {\r\n           
+        CreateTarget(step + 1, maxStep);\r\n        }\r\n        else\r\n       
+        {\r\n            JourneyPhase.PhaseFinish?.Invoke();\r\n        }\r\n\r\n   
+        }\r\n\r\n\r\n\r\n\r\n\r\n    private void CreateTarget(int step, int maxStep)\r\n   
+        {\r\n        Action CallWithStop = () => { StartCoroutine(WaitCreateTarget(step,
+        maxStep)); };\r\n        Base_OnGood base_OnGood = new Base_OnGood(nameGoodPrefab);\r\n       
+        Base_OnBad base_OnBad = new Base_OnBad(nameBadPrefab);\r\n        Base_OnStop
+        base_OnStop = new Base_OnStop(CallWithStop);\r\n\r\n        CreateTarget(namePrefab,
+        nameObjectMove, transformGenerate, targetsToMove, base_OnGood, base_OnBad,
+        base_OnStop);\r\n    }\r\n}\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415649348366391469, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: fastScripting_Code.usingMessage
+      value: 'using System.Collections;
+
+        using System.Collections.Generic;
+
+        using
+        UnityEngine;
+
+        using System;'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415649348366391469, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: fastScripting_Code.nameClass
+      value: Testaba
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415649348366391469, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: fastScripting_Code.bodyClass
+      value: "{\r\n    [Header(\"Text library\")]\r\n    public string nameObjectMove
+        = \"TransitionMetal_ENG\";\r\n    [Header(\"Prefab names\")]\r\n    public
+        string namePrefab = \"DrillObject\";\r\n    public string nameGoodPrefab
+        = \"DrillObjectGood\";\r\n    public string nameBadPrefab = \"DrillObjectBad\";\r\n   
+        [Space]\r\n    public float timeGame = 5;\r\n    public List<GameObject>
+        listShowObjects;\r\n    public List<GameObject> listHideObjects;\r\n    [Space]\r\n   
+        public Transform transformGenerate;\r\n\r\n    public List<Transform> targetsToMove;\r\n\r\n   
+        public override void PhaseStart()\r\n    {\r\n        base.PhaseStart();\r\n       
+        for (int i = 0; i < listShowObjects.Count; i++)\r\n        {\r\n           
+        listShowObjects[i].SetActive(true);\r\n        }\r\n\r\n        for (int
+        i = 0; i < listHideObjects.Count; i++)\r\n        {\r\n            listHideObjects[i].SetActive(false);\r\n       
+        }\r\n\r\n        GameText.Initialization(new List<string>(new string[] {
+        nameObjectMove }));\r\n        StartCoroutine(WaitCreateTarget(0, 5));\r\n\r\n       
+        JourneyPhase.PhaseGame?.Invoke();\r\n    }\r\n\r\n    public override void
+        PhaseGame()\r\n    {\r\n        base.PhaseGame();\r\n\r\n    }\r\n\r\n   
+        public override void PhaseFinish()\r\n    {\r\n        base.PhaseFinish();\r\n       
+        JourneyPhase.EffectFinish?.Invoke();\r\n\r\n    }\r\n\r\n\r\n\r\n    IEnumerator
+        WaitCreateTarget(int step, int maxStep)\r\n    {\r\n        yield return
+        new WaitForSeconds(1);\r\n        if (step < maxStep)\r\n        {\r\n           
+        CreateTarget(step + 1, maxStep);\r\n        }\r\n        else\r\n       
+        {\r\n            JourneyPhase.PhaseFinish?.Invoke();\r\n        }\r\n\r\n   
+        }\r\n\r\n\r\n\r\n\r\n\r\n    private void CreateTarget(int step, int maxStep)\r\n   
+        {\r\n        Action CallWithStop = () => { StartCoroutine(WaitCreateTarget(step,
+        maxStep)); };\r\n        Base_OnGood base_OnGood = new Base_OnGood(nameGoodPrefab);\r\n       
+        Base_OnBad base_OnBad = new Base_OnBad(nameBadPrefab);\r\n        Base_OnStop
+        base_OnStop = new Base_OnStop(CallWithStop);\r\n\r\n        CreateTarget(namePrefab,
+        nameObjectMove, transformGenerate, targetsToMove, base_OnGood, base_OnBad,
+        base_OnStop);\r\n    }\r\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415649348366391469, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: fastScripting_Code.nameBaseClass
+      value: BaseEffect, IEffect, IEffectPhase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569058983327582455, guid: b68382c481b158a4ea487b0cf6af0638,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b68382c481b158a4ea487b0cf6af0638, type: 3}
 --- !u!1 &2021690422
 GameObject:
   m_ObjectHideFlags: 0

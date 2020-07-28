@@ -88,6 +88,10 @@ MonoBehaviour:
     _content:
       _path: Prefabs/Journey/Objects/Quests/CrashJourney
       _loaded: {fileID: 0}
+  - _id: RaceJourney
+    _content:
+      _path: Prefabs/Journey/Objects/Quests/RaceJourney
+      _loaded: {fileID: 0}
   - _id: BaseJourney
     _content:
       _path: Prefabs/Journey/BaseJourney

@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Game\Effects\DrillEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\IEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\IEffectPhase.cs" />
+    <Compile Include="Assets\Scripts\Game\Effects\RaceEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\ResourceGatheringEffect.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\ShipEffect\TeleportShip.cs" />
     <Compile Include="Assets\Scripts\Game\Effects\TakeEffect.cs" />
@@ -142,6 +143,8 @@
     <Compile Include="Assets\Tools\Chance\ChanceExtension.cs" />
     <Compile Include="Assets\Tools\EnterText\EnterTextBehaviour.cs" />
     <Compile Include="Assets\Tools\EnterText\EnterTextController.cs" />
+    <Compile Include="Assets\Tools\FastScripting\Scripts\FastScriptingManager.cs" />
+    <Compile Include="Assets\Tools\FastScripting\Scripts\FastScripting_Code.cs" />
     <Compile Include="Assets\Tools\GameText\GameText.cs" />
     <Compile Include="Assets\Tools\GameText\TextBehaviour.cs" />
     <Compile Include="Assets\Tools\GameText\TextData.cs" />
